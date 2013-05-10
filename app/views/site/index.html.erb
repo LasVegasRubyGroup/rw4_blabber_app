@@ -14,3 +14,7 @@
     <p>Eating <%= food %> is yummy!</p>
   <% end %>
 <% end %>
+
+<% @blabs.each do |blab| %>
+  <p>I said <%= blab.text %> at <%= blab.created_at %></p>
+<% end %>

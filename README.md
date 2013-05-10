@@ -180,9 +180,22 @@ my_first_blab.save
 
 **Done? type `exit`**
 
-## Adding a migration
-
 ## Displaying our data
+_from the code editor_
+- open `app/controllers/site_controller.rb`
+- add the code:
+```ruby
+@blabs = Blab.all
+```
+- open `app/views/site/index.html.erb`
+- add the code:
+```rails
+<% @blabs.each do |blab| %>
+  <p>I said <%= blab.text %> at <%= blab.created_at %></p>
+<% end %>
+```
+
+## Adding a migration
 
 ## Controllers and models and views
 
