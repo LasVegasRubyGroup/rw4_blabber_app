@@ -29,23 +29,17 @@ _from the browser_
 ```text
 localhost:3000
 ```
-** kill the server with `control + c` **
+**kill the server with `control + c`**
 
 ## Our first home page
-
 _from the code editor_
-
-1. delete `public/index.html`.
-
+- delete `public/index.html`.
 _from the console_
-
-2. `rails generate controller site index`.
-
+- `rails generate controller site index`.
 _from the code editor_
-
-3. open `config/routes.rb`.
-  a. delete the line with `get "site/index"`
-  b. add the line `root :to => 'site#index'`
+- open `config/routes.rb`.
+  - a. delete the line with `get "site/index"`
+  - b. add the line `root :to => 'site#index'`
 
 _from the console_
 
@@ -133,11 +127,26 @@ _from the browser_
 
 
 ## Linking Pages
+_from the code editor_
+- open `app/views/site/about.html.erb`.
+- add the code:
+```ruby
+<%= link_to('Go Back Home', root_path) %>
+```
+
+- open `app/views/site/index.html.erb`
+- add the code:
+```ruby
+<%= link_to('About Us', about_path) %>
+```
+
+_from the browser_
+- refresh the page
 
 
 ## Playing with the controller
 
-## Our First model
+## Our First model "the blab"
 
 ## Welcome to the console
 
@@ -150,3 +159,15 @@ _from the browser_
 ## Make it pretty (not really)
 
 ## Add some gems to make it pretty for real
+
+## Heroku and git
+
+## Deploying the app
+
+## User signup
+
+## Favorite a blab
+
+## Tag a blab
+
+## Another Deploy
