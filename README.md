@@ -12,7 +12,7 @@ rails -v
 ```
 
 ## Creating the app
-from the console
+_from the console_
 
 ```text
 rails new blabber
@@ -20,73 +20,74 @@ cd blabber
 ```
 
 ## Booting Rails
-from the console
+_from the console_
 ```text
 rails server
 ```
 
-from the browser
+_from the browser_
 ```text
 localhost:3000
 ```
 ** kill the server with `control + c` **
 
 ## Our first home page
-from the code editor
-1. delete `public/index.html`
-from the console
-2. `rails generate controller site index`
-from the code editor
-3. open `config/routes.rb`
+_from the code editor_
+1. delete `public/index.html`.
+_from the console_
+2. `rails generate controller site index`.
+_from the code editor_
+3. open `config/routes.rb`.
   a. delete the line with `get "site/index"`
   b. add the line `root :to => 'site#index'`
-from the console
-4. `rails server`
-from the browser
-5. `localhost:3000`
+_from the console_
+4. `rails server`.
+_from the browser_
+5. `localhost:3000`.
 
 ## Editing a page
-from the code editor
-1. open `app/views/site/index.html.erb`
-2. change `Site#index` to `Welcome to Blabber`
-from the browser
-3. refresh the page
-from the code editor
-4. open `app/views/layouts/application.html.erb`
-5. add the line `<h1>Top Nav</h1>` above the `yield`
-6. add the line `<h6>Footer</h6>` below the `yield`
-from the browser
-7. refresh the page
+_from the code editor_
+1. open `app/views/site/index.html.erb`.
+2. change `Site#index` to `Welcome to Blabber`.
+_from the browser_
+3. refresh the page.
+_from the code editor_
+4. open `app/views/layouts/application.html.erb`.
+5. add the line `<h1>Top Nav</h1>` above the `yield`.
+6. add the line `<h6>Footer</h6>` below the `yield`.
+_from the browser_
+7. refresh the page.
 
 ## Taste of ERB
-from the code editor
-1. open `app/views/site/index.html.erb`
-2. add the line `<%= Time.now %>`
-from the browser
-3. refresh the page (over and over)
-from the code editor
-4. add the line `<p><%= 1 + 1 %></p>`
-from the browser
-5. refresh the page
-from the code editor
-6. add the line `<% 'HELLO?' %>`
-from the browser
-7. refresh the page
+_from the code editor_
+1. open `app/views/site/index.html.erb`.
+2. add the line `<%= Time.now %>`.
+_from the browser_
+3. refresh the page (over and over).
+_from the code editor_
+4. add the line `<p><%= 1 + 1 %></p>`.
+_from the browser_
+5. refresh the page.
+_from the code editor_
+6. add the line `<% 'HELLO?' %>`.
+_from the browser_
+7. refresh the page.
 
 ## Creating a new page
-from the code editor
-1. open `app/controllers/site_controller.rb`
+_from the code editor_
+1. open `app/controllers/site_controller.rb`.
 2. add the code:
 ```ruby
 def about
 end
 ```
-3. add a new file `app/views/site/about.html.erb`
-4. add the line `<h1>About Blabber</h1>`
-5. open the file `config/routes.rb`
-6. add the line `get '/about' => 'site#about'`
-from the browser
-7. go to `localhost:3000/about`
+
+3. add a new file `app/views/site/about.html.erb`.
+4. add the line `<h1>About Blabber</h1>`.
+5. open the file `config/routes.rb`.
+6. add the line `get '/about' => 'site#about'`.
+_from the browser_
+7. go to `localhost:3000/about`.
 
 ## Linking Pages
 
