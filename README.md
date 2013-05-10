@@ -116,7 +116,7 @@ _from the code editor_
 @foods = ['pizza', 'burger', 'burrito', 'cat']
 ```
 
-**note: yes, I really mean add cat in there**
+- **note: yes, I really mean add cat in there**
 - open `app/views/site/index.html.erb`
 - add the code:
 ```ruby
@@ -141,8 +141,44 @@ _from the code editor_
 ```
 
 ## Our First model "the blab"
+_from the console_
+- stop the server `control + c`
+- tell rails to generate a new model
+  - `rails generate model blab`
+_from the code editor_
+- open `db/migrate/##############_create_blabs.rb`
+- add the code:
+```ruby
+t.string :text
+```
+
+_from the console_
+- run `rake db:migrate`
 
 ## Welcome to the console
+_from the console_
+- run `rails console`
+```ruby
+Blab
+#=> Blab(id: integer, text: string, created_at: datetime, updated_at: datetime)
+Blab.count
+#=> 0
+Blab.first
+#=> nil
+my_first_blab = Blab.new
+#=> #<Blab id: nil, text: nil, created_at: nil, updated_at: nil>
+my_first_blab.text = "BLABBING AWAY!!!"
+#=> "BLABBING AWAY!!!"
+my_first_blab.save
+#=> true
+```
+
+- create a second blab
+  - What is the id of the second blab?
+  - What is the total count of blabs in the database?
+  - What is the id of `Blab.first`?
+
+**Done? type `exit`**
 
 ## Adding a migration
 
