@@ -6,3 +6,11 @@
 
 <% 'HELLO?' %>
 <%= link_to('About Us', about_path) %>
+
+<% @foods.each do |food| %>
+  <% if food == 'cat' %>
+    <p>Wait, <%= food %> is not a food..</p>
+  <% else %>
+    <p>Eating <%= food %> is yummy!</p>
+  <% end %>
+<% end %>

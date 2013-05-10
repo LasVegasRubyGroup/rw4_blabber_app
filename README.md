@@ -42,89 +42,53 @@ _from the code editor_
   - b. add the line `root :to => 'site#index'`
 
 _from the console_
-
-4. `rails server`.
-
+- `rails server`.
 _from the browser_
-
-5. `localhost:3000`.
+- `localhost:3000`.
 
 ## Editing a page
-
 _from the code editor_
-
-1. open `app/views/site/index.html.erb`.
-
-2. change `Site#index` to `Welcome to Blabber`.
-
+- open `app/views/site/index.html.erb`.
+- change `Site#index` to `Welcome to Blabber`.
 _from the browser_
-
-3. refresh the page.
-
+- refresh the page.
 _from the code editor_
-
-4. open `app/views/layouts/application.html.erb`.
-
-5. add the line `<h1>Top Nav</h1>` above the `yield`.
-
-6. add the line `<h6>Footer</h6>` below the `yield`.
-
+- open `app/views/layouts/application.html.erb`.
+- add the line `<h1>Top Nav</h1>` above the `yield`.
+- add the line `<h6>Footer</h6>` below the `yield`.
 _from the browser_
-
-7. refresh the page.
-
+- refresh the page.
 
 ## Taste of ERB
 _from the code editor_
-
-1. open `app/views/site/index.html.erb`.
-
-2. add the line `<%= Time.now %>`.
-
+- open `app/views/site/index.html.erb`.
+- add the line `<%= Time.now %>`.
 _from the browser_
-
-3. refresh the page (over and over).
-
+- refresh the page (over and over).
 _from the code editor_
-
-4. add the line `<p><%= 1 + 1 %></p>`.
-
+- add the line `<p><%= 1 + 1 %></p>`.
 _from the browser_
-
-5. refresh the page.
-
+- refresh the page.
 _from the code editor_
-
-6. add the line `<% 'HELLO?' %>`.
-
+- add the line `<% 'HELLO?' %>`.
 _from the browser_
-
-7. refresh the page.
-
+- refresh the page.
 
 ## Creating a new page
 _from the code editor_
-
-1. open `app/controllers/site_controller.rb`.
-
-2. add the code:
+- open `app/controllers/site_controller.rb`.
+- add the code:
 ```ruby
 def about
 end
 ```
 
-3. add a new file `app/views/site/about.html.erb`.
-
-4. add the line `<h1>About Blabber</h1>`.
-
-5. open the file `config/routes.rb`.
-
-6. add the line `get '/about' => 'site#about'`.
-
+- add a new file `app/views/site/about.html.erb`.
+- add the line `<h1>About Blabber</h1>`.
+- open the file `config/routes.rb`.
+- add the line `get '/about' => 'site#about'`.
 _from the browser_
-
-7. go to `localhost:3000/about`.
-
+- go to `localhost:3000/about`.
 
 ## Linking Pages
 _from the code editor_
@@ -145,6 +109,36 @@ _from the browser_
 
 
 ## Playing with the controller
+_from the code editor_
+- open `app/controllers/site_controller.rb`.
+- inside of the `index` method add the code:
+```
+@foods = ['pizza', 'burger', 'burrito', 'cat']
+```
+
+**note: yes, I really mean add cat in there**
+- open `app/views/site/index.html.erb`
+- add the code:
+```ruby
+<% @foods.each do |food| %>
+  <p>Eating <%= food %> is yummy!</p>
+<% end %>
+```
+
+_from the browser_
+- refresh the page
+_from the code editor_
+- open `app/views/site/index.html.erb`
+- fix the code:
+```
+<% @foods.each do |food| %>
+  <% if food == 'cat' %>
+    <p>Wait, <%= food %> is not a food..</p>
+  <% else %>
+    <p>Eating <%= food %> is yummy!</p>
+  <% end %>
+<% end %>
+```
 
 ## Our First model "the blab"
 
