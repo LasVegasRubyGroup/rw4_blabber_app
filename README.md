@@ -112,7 +112,7 @@ _from the browser_
 _from the code editor_
 - open `app/controllers/site_controller.rb`.
 - inside of the `index` method add the code:
-```
+```ruby
 @foods = ['pizza', 'burger', 'burrito', 'cat']
 ```
 
@@ -128,9 +128,9 @@ _from the code editor_
 _from the browser_
 - refresh the page
 _from the code editor_
-- open `app/views/site/index.html.erb`
+- open `app/views/site/index.html.erb`.
 - fix the code:
-```
+```ruby
 <% @foods.each do |food| %>
   <% if food == 'cat' %>
     <p>Wait, <%= food %> is not a food..</p>
