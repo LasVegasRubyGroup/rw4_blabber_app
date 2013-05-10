@@ -127,8 +127,9 @@ _from the code editor_
 
 _from the browser_
 - refresh the page
+
 _from the code editor_
-- open `app/views/site/index.html.erb`.
+- open `app/views/site/index.html.erb`
 - fix the code:
 ```ruby
 <% @foods.each do |food| %>
@@ -145,6 +146,7 @@ _from the console_
 - stop the server `control + c`
 - tell rails to generate a new model
   - `rails generate model blab`
+
 _from the code editor_
 - open `db/migrate/##############_create_blabs.rb`
 - add the code:
@@ -187,9 +189,10 @@ _from the code editor_
 ```ruby
 @blabs = Blab.all
 ```
+
 - open `app/views/site/index.html.erb`
 - add the code:
-```rails
+```ruby
 <% @blabs.each do |blab| %>
   <p>I said <%= blab.text %> at <%= blab.created_at %></p>
 <% end %>
