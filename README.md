@@ -171,3 +171,16 @@ _from the browser_
 ## Tag a blab
 
 ## Another Deploy
+
+## Resources
+Congrats! You've built a rails app. Now it's time to go re-learn what you just did.
+Here are some links to help you get started
+- http://meetup.lvrug.org/
+- http://www.codecademy.com/tracks/ruby
+- http://www.codeschool.com/paths/ruby
+- http://www.codeschool.com/courses/ruby-bits
+- http://railsforzombies.org/
+- http://jumpstartlab.com/courses
+- http://railscasts.com/
+- http://ruby.railstutorial.org/
+- http://railsbest.com/
