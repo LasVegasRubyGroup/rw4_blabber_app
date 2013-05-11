@@ -54,8 +54,20 @@ _from the browser_
 - refresh the page.
 _from the code editor_
 - open `app/views/layouts/application.html.erb`.
-- add the line `<h1>Top Nav</h1>` above the `yield`.
-- add the line `<h6>Footer</h6>` below the `yield`.
+- add the code above the `yield`:
+```html
+<header>
+  <h1>Top Nav</h1>
+</header>
+```
+
+- add the code below the `yield`:
+```html
+<footer>
+  <h6>Footer</h6>
+</footer>
+```
+
 _from the browser_
 - refresh the page.
 
@@ -217,7 +229,7 @@ resources :blabs
 def new
   @blab = Blab.new
 end
-
+  
 def create
   @blab = Blab.new(params[:blab])
   if @blab.save
@@ -256,8 +268,37 @@ _from the code editor_
 - open `app/views/site/index.html.erb`
 - add a link to the form. the url helper is `new_blab_path`
 
+## Validations
+_from the code editor_
+- open `app/models/blab.rb`
+- add the code:
+```ruby
+validates :text, presence: true
+```
+
+_from the browser_
+- go to `localhost:3000/blabs/new`
+- submit empty form
 
 ## Make it pretty (not really)
+_from the code editor_
+- open `app/assets/stylesheets/application.css`
+- add the code:
+```css
+a {
+  color: red;
+  font-size: 20px;
+}
+header {
+  border-bottom: 2px solid black;
+}
+footer {
+  border-top: 2px solid black;
+}
+```
+
+_from the browser_
+- refresh the browser
 
 ## Add some gems to make it pretty for real
 
