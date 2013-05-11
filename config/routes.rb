@@ -1,6 +1,8 @@
 Blabber::Application.routes.draw do
   root :to => 'site#index'
   get '/about' => 'site#about'
+  
+  resources :blabs
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

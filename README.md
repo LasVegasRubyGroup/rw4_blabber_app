@@ -129,7 +129,7 @@ _from the browser_
 - refresh the page
 
 _from the code editor_
-- open `app/views/site/index.html.erb`
+- open `app/views/site/index.html.erb`.
 - fix the code:
 ```ruby
 <% @foods.each do |food| %>
@@ -198,9 +198,64 @@ _from the code editor_
 <% end %>
 ```
 
-## Adding a migration
+_from the browser_
+- refresh the page
 
 ## Controllers and models and views
+_from the console_
+- run `rails generate controller blabs`
+_from the code editor_
+- open `config/routes.rb`
+- add the code:
+```ruby
+resources :blabs
+```
+
+- open `app/controllers/blabs_controller.rb`
+- add the code:
+```ruby
+def new
+  @blab = Blab.new
+end
+
+def create
+  @blab = Blab.new(params[:blab])
+  if @blab.save
+    redirect_to(root_path, notice: 'Just created a new blab')
+  else
+    render(:new)
+  end
+end
+```
+
+- add a new file `app/views/blabs/new.html.erb`
+- add the code:
+```ruby
+<h1>Write a new blab</h1>
+<%= form_for(@blab) do |f| %>
+  <p><%= f.text_area(:text) %></p>
+  <p><%= f.submit('Save') %></p>
+<% end %>
+```
+
+_from the browser_
+- go to `localhost:3000/blabs/new`
+- write a blab
+- fix the error
+_from the code editor_
+- open `app/views/models/blab.rb`
+- add the code:
+```ruby
+attr_accessible :text
+```
+
+_from the browser_
+- refresh the page
+
+_from the code editor_
+- open `app/views/site/index.html.erb`
+- add a link to the form. the url helper is `new_blab_path`
+
 
 ## Make it pretty (not really)
 
@@ -213,6 +268,10 @@ _from the code editor_
 ## User signup
 
 ## Favorite a blab
+
+## Adding a migration
+_from the console_
+- run `rails generate migration add_fields_to_blab`
 
 ## Tag a blab
 

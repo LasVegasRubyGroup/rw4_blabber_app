@@ -1,0 +1,5 @@
+<h1>Write a new blab</h1>
+<%= form_for(@blab) do |f| %>
+  <p><%= f.text_area(:text) %></p>
+  <p><%= f.submit('Save') %></p>
+<% end %>
