@@ -374,22 +374,46 @@ _from the browser_
 
 ## User signup
 
-## Favorite a blab
-
 ## Adding a migration
 _from the console_
 - run `rails generate migration add_fields_to_blab`
+_from the code editor_
+- open the new migration file
+- add the code:
+```ruby
+add_column :blabs, :tags, :string
+```
 
-## Tag a blab
+_from the console_
+- run rake db:migrate
+
+_from the code editor_
+- open `app/views/blabs/new.html.erb`
+- add the code:
+```html
+<p><%= f.text_field(:tags, placeholder: 'tags') %></p>
+```
+
+- open `app/models/blab.rb`
+- update attr_accessible with `:tags`
 
 ## Another Deploy
 _from the console_
 - run `git add .`
 - run `git commit -am "more updates"`
 - run `git push heroku master`
+- run `heroku run rake db:migrate`
 
 _from the browser_
 - refresh your site
+
+## Rails Challenges
+
+1. Create another page. Link to it from the home page, and link to the home page from it
+2. Update your layout to have a new header and footer
+3. Change some styles.
+4. Add a "private" boolean to your blab model and database
+5. deploy your changes
 
 ## Resources
 Congrats! You've built a rails app. Now it's time to go re-learn what you just did.
