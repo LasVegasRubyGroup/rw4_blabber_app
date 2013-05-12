@@ -332,11 +332,45 @@ _from the browser_
 - refresh the browser
 
 ## Gems
+_from the code editor_
+- open `Gemfile`
+- add the gem `will_paginate`, `unicorn`, `zurb-foundation`, `pg`, `heroku`
+- move sqlite3 gem to development group and pg to production group
 
+_from the console_
+- run `bundle install`
+- configure foundation with `rails g foundation:install`
+**press y to access overwrite**
+
+_from the browser_
+- refresh the browser
+
+_from the code editor_
+- open `app/controllers/site_controller.rb`
+- remove the code `@blabs = Blab.all`
+- add the code:
+```ruby
+@blabs = Blab.paginate(page: params[:page], per_page: 5)
+```
+
+- open `app/views/site/index.html.erb`
+- add the code: `<%= will_paginate @blabs %>`
 
 ## Heroku and git
+- Signup at https://api.heroku.com/signup
+_from the console_
+- run `git init`
+- run `git add .`
+- run `git commit -m "Initial Commit"`
 
 ## Deploying the app
+_from the console_
+- run `heroku create --stack cedar`
+- run `git push heroku master`
+- run `heroku run rake db:migrate`
+
+_from the browser_
+- visit your site
 
 ## User signup
 
@@ -349,6 +383,13 @@ _from the console_
 ## Tag a blab
 
 ## Another Deploy
+_from the console_
+- run `git add .`
+- run `git commit -am "more updates"`
+- run `git push heroku master`
+
+_from the browser_
+- refresh your site
 
 ## Resources
 Congrats! You've built a rails app. Now it's time to go re-learn what you just did.

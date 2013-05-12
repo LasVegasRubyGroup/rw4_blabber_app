@@ -18,5 +18,6 @@
 <% @blabs.each do |blab| %>
   <p>I said <%= blab.text %> at <%= blab.created_at %></p>
 <% end %>
+<%= will_paginate @blabs %>
 
 <%= link_to('blab something', new_blab_path) %>
