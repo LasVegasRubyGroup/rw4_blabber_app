@@ -9,6 +9,7 @@ class BlabsController < ApplicationController
     if @blab.save
       redirect_to(root_path, notice: 'Just created a new blab')
     else
+      flash[:error] = 'oops!'
       render(:new)
     end
   end

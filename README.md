@@ -280,7 +280,30 @@ _from the browser_
 - go to `localhost:3000/blabs/new`
 - submit empty form
 
-## Make it pretty (not really)
+## Helpers
+_from the code editor_
+- open `app/helpers/application_helper.rb`
+- add the code:
+```ruby
+def flash_message
+  unless flash.blank?
+    [:notice, :error].each do |message|
+      return content_tag(:div, flash[message], class: message) if flash[message].present?
+    end
+  end
+end
+```
+
+- open `app/views/layouts/application.html.erb`
+- add the code:
+```ruby
+<%= flash_message %>
+```
+
+- open `app/controllers/blabs_controller.rb`
+- add the line `flash[:error] = 'oops!'` to the create action.
+
+## Make it "pretty" (not really)
 _from the code editor_
 - open `app/assets/stylesheets/application.css`
 - add the code:
@@ -295,12 +318,21 @@ header {
 footer {
   border-top: 2px solid black;
 }
+.notice {
+  color: green;
+  font-size: 20px;
+}
+.error {
+  color: red;
+  font-size: 20px;
+}
 ```
 
 _from the browser_
 - refresh the browser
 
-## Add some gems to make it pretty for real
+## Gems
+
 
 ## Heroku and git
 

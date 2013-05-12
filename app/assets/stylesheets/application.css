@@ -21,3 +21,11 @@
  footer {
    border-top: 2px solid black;
  }
+ .notice {
+   color: green;
+   font-size: 20px;
+ }
+ .error {
+   color: red;
+   font-size: 20px;
+ }
